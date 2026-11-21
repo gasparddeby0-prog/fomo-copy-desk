@@ -3,7 +3,7 @@
   "mode": "websocket",
   "started_at_europe_paris": "2026-11-21 22:27:24 CET",
   "last_event_europe_paris": "2026-11-21 23:07:24 CET",
-  "last_ok_europe_paris": "2026-11-21 23:08:15 CET",
+  "last_ok_europe_paris": "2026-11-21 23:09:15 CET",
   "last_error": "sent 1002 (protocol error) invalid status code; no close frame received",
   "events": 39,
   "copied": 0,
