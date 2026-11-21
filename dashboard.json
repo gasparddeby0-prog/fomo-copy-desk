@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:58:17.135662Z",
-  "exported_at_europe_paris": "2026-11-21 23:58:17 CET",
+  "exported_at_utc": "2026-11-21T22:59:17.242754Z",
+  "exported_at_europe_paris": "2026-11-21 23:59:17 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -6053,7 +6053,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:58:17.135662Z",
+        "ts": "2026-11-21T22:59:17.242754Z",
         "equity": 100.0
       }
     ],
@@ -6171,7 +6171,7 @@
     "status": "live",
     "transport": "websocket",
     "last_event_europe_paris": "2026-11-21 23:55:06 CET",
-    "last_ok_europe_paris": "2026-11-21 23:58:14 CET",
+    "last_ok_europe_paris": "2026-11-21 23:59:14 CET",
     "whales": 15,
     "events": 83
   }
