@@ -2,12 +2,12 @@
   "status": "ok",
   "mode": "poll",
   "started_at_europe_paris": "2026-11-21 22:27:24 CET",
-  "last_event_europe_paris": "2026-11-21 23:10:36 CET",
-  "last_ok_europe_paris": "2026-11-21 23:11:06 CET",
+  "last_event_europe_paris": "2026-11-21 23:11:24 CET",
+  "last_ok_europe_paris": "2026-11-21 23:11:56 CET",
   "last_error": "",
-  "events": 40,
+  "events": 42,
   "copied": 0,
-  "refused": 27,
+  "refused": 29,
   "whales": 15,
   "paper": true
 }

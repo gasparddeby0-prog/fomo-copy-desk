@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:10:48.266570Z",
-  "exported_at_europe_paris": "2026-11-21 23:10:48 CET",
+  "exported_at_utc": "2026-11-21T22:11:48.371844Z",
+  "exported_at_europe_paris": "2026-11-21 23:11:48 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -61,6 +61,38 @@
     }
   ],
   "trades": [
+    {
+      "id": 217,
+      "whale_id": 4,
+      "wallet": "387FRwow6MKDhSwuMULhKjqeXuxoBY4BbbaSntdk9LaH",
+      "mint": "4niW5TAyY1nrZxQTborjkUw5BxgKZsQymagJLm83pump",
+      "side": "buy",
+      "amount_usd": 71.55330866664,
+      "amount_token": 23829687.113414,
+      "signature": "5mCD7ryLswTDCkKtT5zVWV3WtC11x12e8CdKMUwnTj8Ydh61kaauwCvJvRkd5LhdMtvABaxLnzBnjYtuDFaSa9EY",
+      "slot": 472301709,
+      "ts": "2026-11-21T22:11:20.000000Z",
+      "lag_s": 1.665489912033081,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472301709, \"blockTime\": 1795299080, \"signature\": \"5mCD7ryLswTDCkKtT5zVWV3WtC11x12e8CdKMUwnTj8Ydh61kaauwCvJvRkd5LhdMtvABaxLnzBnjYtuDFaSa9EY\"}",
+      "handle": "387FRwow6MKDhSwuMULhKjqeXuxoBY4BbbaSntdk9LaH"
+    },
+    {
+      "id": 218,
+      "whale_id": 8,
+      "wallet": "5dzH7gh5FjtrxUwtfBufJyTBA4fyCUGheZsdYQsE9vag",
+      "mint": "TTWofwAge91oFhZs7kpQdyrVRkmevgM88xijGvQFbKo",
+      "side": "buy",
+      "amount_usd": null,
+      "amount_token": 8.199999999999874e-05,
+      "signature": "52RZMZ89pW7R7xphydY7mpgpz57jyFG1Em3UrsQ7WKFzEeYJeqrBxKiiB5k18KUkbsgPS1mMjQpoc9gn2SSfswke",
+      "slot": 472301689,
+      "ts": "2026-11-21T22:11:16.000000Z",
+      "lag_s": 8.222224950790405,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472301689, \"blockTime\": 1795299076, \"signature\": \"52RZMZ89pW7R7xphydY7mpgpz57jyFG1Em3UrsQ7WKFzEeYJeqrBxKiiB5k18KUkbsgPS1mMjQpoc9gn2SSfswke\"}",
+      "handle": "5dzH7gh5FjtrxUwtfBufJyTBA4fyCUGheZsdYQsE9vag"
+    },
     {
       "id": 216,
       "whale_id": 7,
@@ -3818,6 +3850,42 @@
   ],
   "vetter_decisions": [
     {
+      "id": 44,
+      "mint": "TTWofwAge91oFhZs7kpQdyrVRkmevgM88xijGvQFbKo",
+      "ts": "2026-11-21T22:11:24.652104Z",
+      "whale_conviction": 12.5,
+      "liquidity": 93.25505747202716,
+      "buy_flow": 52.55474452554745,
+      "social": null,
+      "momentum": 49.983333333333334,
+      "total": 0.0,
+      "accepted": false,
+      "decision": "refusé",
+      "reasons": [
+        "mint authority non révoquée",
+        "freeze authority non révoquée",
+        "LP non verrouillée ou non brûlée"
+      ],
+      "symbol": "TTWO"
+    },
+    {
+      "id": 43,
+      "mint": "4niW5TAyY1nrZxQTborjkUw5BxgKZsQymagJLm83pump",
+      "ts": "2026-11-21T22:11:22.102908Z",
+      "whale_conviction": 14.288832716666,
+      "liquidity": 0.0,
+      "buy_flow": 57.61904761904762,
+      "social": null,
+      "momentum": 26.08,
+      "total": 0.0,
+      "accepted": false,
+      "decision": "refusé",
+      "reasons": [
+        "top 10 holders à 125.24 % (> 60.0 %)",
+        "liquidité 2129.46 $ < 25000.00 $"
+      ]
+    },
+    {
       "id": 42,
       "mint": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "ts": "2026-11-21T22:10:37.148220Z",
@@ -4877,12 +4945,12 @@
     }
   },
   "last_activity": {
-    "id": 334,
-    "ts_utc": "2026-11-21T22:10:37.148803Z",
-    "ts_europe_paris": "2026-11-21 23:10:37 CET",
+    "id": 340,
+    "ts_utc": "2026-11-21T22:11:24.652239Z",
+    "ts_europe_paris": "2026-11-21 23:11:24 CET",
     "level": "info",
     "actor": "live",
-    "message": "buy refusé The Doc: ['achat baleine 0.00 $ < 50.00 $']"
+    "message": "buy refusé Hermes: ['mint authority non révoquée']"
   },
   "equity_history": [
     {
@@ -4908,8 +4976,8 @@
     "positions_open": 0,
     "positions_closed": 0,
     "orders": 2,
-    "trades": 216,
-    "vetter_decisions": 42,
+    "trades": 218,
+    "vetter_decisions": 44,
     "whales": 15,
     "equity_points": 2
   },
@@ -4919,14 +4987,14 @@
       "name": "Watcher",
       "role": "Détecte les achats des baleines",
       "status": "EN DIRECT",
-      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:10:36 CET",
+      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:11:24 CET",
       "state": "ok"
     },
     {
       "id": "vetter",
       "name": "Vetter",
       "role": "Vérifie et note chaque jeton",
-      "status": "42 décisions",
+      "status": "44 décisions",
       "detail": "Refuse les jetons rouges ou incomplets, note de 0 à 100",
       "state": "ok"
     },
@@ -4970,7 +5038,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:10:48.266570Z",
+        "ts": "2026-11-21T22:11:48.371844Z",
         "equity": 100.0
       }
     ],
@@ -5087,9 +5155,9 @@
   "live": {
     "status": "live",
     "transport": "poll",
-    "last_event_europe_paris": "2026-11-21 23:10:36 CET",
-    "last_ok_europe_paris": "2026-11-21 23:10:47 CET",
+    "last_event_europe_paris": "2026-11-21 23:11:24 CET",
+    "last_ok_europe_paris": "2026-11-21 23:11:47 CET",
     "whales": 15,
-    "events": 40
+    "events": 42
   }
 }
