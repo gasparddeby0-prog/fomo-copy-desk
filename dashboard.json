@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:09:48.152290Z",
-  "exported_at_europe_paris": "2026-11-21 23:09:48 CET",
+  "exported_at_utc": "2026-11-21T22:10:48.266570Z",
+  "exported_at_europe_paris": "2026-11-21 23:10:48 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -28,6 +28,22 @@
   "positions_closed": [],
   "orders": [
     {
+      "id": 2,
+      "ts": "2026-11-21T22:10:37.148720Z",
+      "side": "buy",
+      "mint": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "size_usd": 0.0,
+      "size_token": 0.0,
+      "price": 0.002328,
+      "reason": "achat baleine 0.00 $ < 50.00 $",
+      "status": "rejected",
+      "position_id": null,
+      "trade_id": 216,
+      "raw_json": "{\"accepted\": false, \"size_usd\": 0.0, \"reasons\": [\"achat baleine 0.00 $ < 50.00 $\"], \"raw_usd\": 0.0, \"caps\": {}, \"price_source\": \"dexscreener\"}",
+      "price_source": "dexscreener",
+      "symbol": "PUMP"
+    },
+    {
       "id": 1,
       "ts": "2026-11-21T21:35:18.237677Z",
       "side": "buy",
@@ -45,6 +61,22 @@
     }
   ],
   "trades": [
+    {
+      "id": 216,
+      "whale_id": 7,
+      "wallet": "DYAn4XpAkN5mhiXkRB7dGq4Jadnx6XYgu8L5b3WGhbrt",
+      "mint": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "side": "buy",
+      "amount_usd": null,
+      "amount_token": 3.023584999999912,
+      "signature": "23XycKu65ZRJAWe2SL9adn18DdEKjGcyGcSq4PwcSeaSNgq5gofYnK9UjJeD3mHwWX2QWJktoBahGhVakjs1aSmV",
+      "slot": 472301185,
+      "ts": "2026-11-21T22:09:28.000000Z",
+      "lag_s": 68.20760202407837,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472301185, \"blockTime\": 1795298968, \"signature\": \"23XycKu65ZRJAWe2SL9adn18DdEKjGcyGcSq4PwcSeaSNgq5gofYnK9UjJeD3mHwWX2QWJktoBahGhVakjs1aSmV\"}",
+      "handle": "DYAn4XpAkN5mhiXkRB7dGq4Jadnx6XYgu8L5b3WGhbrt"
+    },
     {
       "id": 215,
       "whale_id": 1,
@@ -3786,6 +3818,23 @@
   ],
   "vetter_decisions": [
     {
+      "id": 42,
+      "mint": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "ts": "2026-11-21T22:10:37.148220Z",
+      "whale_conviction": 12.5,
+      "liquidity": 100.0,
+      "buy_flow": 0.0,
+      "social": null,
+      "momentum": 48.87222222222223,
+      "total": 40.3431,
+      "accepted": true,
+      "decision": "accepté",
+      "reasons": [
+        "score 40.3"
+      ],
+      "symbol": "PUMP"
+    },
+    {
       "id": 41,
       "mint": "ANTBTZQ1EUuTxUs3tfeampxdqTWPHmwyJmcWj4xoAyNe",
       "ts": "2026-11-21T22:07:25.383848Z",
@@ -4828,12 +4877,12 @@
     }
   },
   "last_activity": {
-    "id": 331,
-    "ts_utc": "2026-11-21T22:07:25.384110Z",
-    "ts_europe_paris": "2026-11-21 23:07:25 CET",
+    "id": 334,
+    "ts_utc": "2026-11-21T22:10:37.148803Z",
+    "ts_europe_paris": "2026-11-21 23:10:37 CET",
     "level": "info",
     "actor": "live",
-    "message": "buy refusé Sheep: ['mint authority non révoquée']"
+    "message": "buy refusé The Doc: ['achat baleine 0.00 $ < 50.00 $']"
   },
   "equity_history": [
     {
@@ -4858,9 +4907,9 @@
   "counts": {
     "positions_open": 0,
     "positions_closed": 0,
-    "orders": 1,
-    "trades": 215,
-    "vetter_decisions": 41,
+    "orders": 2,
+    "trades": 216,
+    "vetter_decisions": 42,
     "whales": 15,
     "equity_points": 2
   },
@@ -4870,14 +4919,14 @@
       "name": "Watcher",
       "role": "Détecte les achats des baleines",
       "status": "EN DIRECT",
-      "detail": "transport websocket · 15 wallets · dernier événement 2026-11-21 23:07:24 CET",
+      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:10:36 CET",
       "state": "ok"
     },
     {
       "id": "vetter",
       "name": "Vetter",
       "role": "Vérifie et note chaque jeton",
-      "status": "41 décisions",
+      "status": "42 décisions",
       "detail": "Refuse les jetons rouges ou incomplets, note de 0 à 100",
       "state": "ok"
     },
@@ -4893,7 +4942,7 @@
       "id": "executor",
       "name": "Executor",
       "role": "Enregistre les trades fictifs",
-      "status": "1 ordre PAPER",
+      "status": "2 ordres PAPER",
       "detail": "Les trades restent fictifs tant que le mode est PAPER",
       "state": "ok"
     },
@@ -4921,7 +4970,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:09:48.152290Z",
+        "ts": "2026-11-21T22:10:48.266570Z",
         "equity": 100.0
       }
     ],
@@ -5037,10 +5086,10 @@
   },
   "live": {
     "status": "live",
-    "transport": "websocket",
-    "last_event_europe_paris": "2026-11-21 23:07:24 CET",
-    "last_ok_europe_paris": "2026-11-21 23:09:45 CET",
+    "transport": "poll",
+    "last_event_europe_paris": "2026-11-21 23:10:36 CET",
+    "last_ok_europe_paris": "2026-11-21 23:10:47 CET",
     "whales": 15,
-    "events": 39
+    "events": 40
   }
 }
