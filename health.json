@@ -1,13 +1,13 @@
 {
   "status": "ok",
-  "mode": "websocket",
+  "mode": "poll",
   "started_at_europe_paris": "2026-11-21 22:27:24 CET",
-  "last_event_europe_paris": "2026-11-21 23:53:52 CET",
-  "last_ok_europe_paris": "2026-11-21 23:54:44 CET",
+  "last_event_europe_paris": "2026-11-21 23:55:06 CET",
+  "last_ok_europe_paris": "2026-11-21 23:55:16 CET",
   "last_error": "",
-  "events": 79,
+  "events": 83,
   "copied": 0,
-  "refused": 48,
+  "refused": 49,
   "whales": 15,
   "paper": true
 }

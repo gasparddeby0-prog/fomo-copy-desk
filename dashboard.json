@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:54:46.765386Z",
-  "exported_at_europe_paris": "2026-11-21 23:54:46 CET",
+  "exported_at_utc": "2026-11-21T22:55:16.844226Z",
+  "exported_at_europe_paris": "2026-11-21 23:55:16 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -124,6 +124,70 @@
       "source": "solana_live",
       "raw_json": "{\"slot\": 472313416, \"blockTime\": 1795301604, \"signature\": \"47obq8qc78oqDwUcZM9Zp8m5HyqmJ96GNByAiynLtQ4jimAvYT3Jn1sSAPwKqufAeBSmg5S6TszxHK6v4r5mCGQ3\"}",
       "handle": "5dzH7gh5FjtrxUwtfBufJyTBA4fyCUGheZsdYQsE9vag"
+    },
+    {
+      "id": 257,
+      "whale_id": 1,
+      "wallet": "78N177fzNJpp8pG49xDv1efYcTMSzo9tPTKEA9mAVkh2",
+      "mint": "ANTBTZQ1EUuTxUs3tfeampxdqTWPHmwyJmcWj4xoAyNe",
+      "side": "buy",
+      "amount_usd": null,
+      "amount_token": 1.0000000000003062e-05,
+      "signature": "5FfmW9TUfm4jFpgXdgWXWZo2idPwkMmPong4mG9Bi763uaABpqm64ANJH1D2gHjXgXPWJVKsovEo25Py5chfxS4a",
+      "slot": 472313317,
+      "ts": "2026-11-21T22:53:03.000000Z",
+      "lag_s": 117.91728901863098,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472313317, \"blockTime\": 1795301583, \"signature\": \"5FfmW9TUfm4jFpgXdgWXWZo2idPwkMmPong4mG9Bi763uaABpqm64ANJH1D2gHjXgXPWJVKsovEo25Py5chfxS4a\"}",
+      "handle": "78N177fzNJpp8pG49xDv1efYcTMSzo9tPTKEA9mAVkh2"
+    },
+    {
+      "id": 256,
+      "whale_id": 1,
+      "wallet": "78N177fzNJpp8pG49xDv1efYcTMSzo9tPTKEA9mAVkh2",
+      "mint": "ANTBTZQ1EUuTxUs3tfeampxdqTWPHmwyJmcWj4xoAyNe",
+      "side": "buy",
+      "amount_usd": null,
+      "amount_token": 0.0015169999999999975,
+      "signature": "4MgA8PMCEzPeutSC41kygwg3F6xE3s1rKJD56KDuAbWcFhms2StaRNwjN7JXUraFoFa6jpP1U94tebPEBJU4wRgF",
+      "slot": 472312228,
+      "ts": "2026-11-21T22:49:08.000000Z",
+      "lag_s": 352.82842993736267,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472312228, \"blockTime\": 1795301348, \"signature\": \"4MgA8PMCEzPeutSC41kygwg3F6xE3s1rKJD56KDuAbWcFhms2StaRNwjN7JXUraFoFa6jpP1U94tebPEBJU4wRgF\"}",
+      "handle": "78N177fzNJpp8pG49xDv1efYcTMSzo9tPTKEA9mAVkh2"
+    },
+    {
+      "id": 259,
+      "whale_id": 11,
+      "wallet": "JDd3hy3gQn2V982mi1zqhNqUw1GfV2UL6g76STojCJPN",
+      "mint": "3Az4ajBuLdF2Y9Cei1n8YCozAGXE5NuyTu9ykFaGpump",
+      "side": "sell",
+      "amount_usd": 189.497346811264,
+      "amount_token": 15817160.432295,
+      "signature": "48NhDTfevypUQjtVgPH9DbEHwBnpe1yocWrQ54rxYrqH6EaeD1n9BcaSVnCyguwyJetU9FarFSmjipNgrjZhDjN5",
+      "slot": 472311754,
+      "ts": "2026-11-21T22:47:26.000000Z",
+      "lag_s": 460.6525790691376,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472311754, \"blockTime\": 1795301246, \"signature\": \"48NhDTfevypUQjtVgPH9DbEHwBnpe1yocWrQ54rxYrqH6EaeD1n9BcaSVnCyguwyJetU9FarFSmjipNgrjZhDjN5\"}",
+      "handle": "JDd3hy3gQn2V982mi1zqhNqUw1GfV2UL6g76STojCJPN"
+    },
+    {
+      "id": 258,
+      "whale_id": 11,
+      "wallet": "JDd3hy3gQn2V982mi1zqhNqUw1GfV2UL6g76STojCJPN",
+      "mint": "3Az4ajBuLdF2Y9Cei1n8YCozAGXE5NuyTu9ykFaGpump",
+      "side": "buy",
+      "amount_usd": 70.66049728,
+      "amount_token": 2635683.928242,
+      "signature": "5VMEz5Hbo589xKQPXszxmXesLAqVxiViUYR6qbZqfmf5rqQURk13UVrzjxoJ3QQ8Uhk2qL4yaNXLkM8MZFzp8iR",
+      "slot": 472311726,
+      "ts": "2026-11-21T22:47:20.000000Z",
+      "lag_s": 466.60348296165466,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472311726, \"blockTime\": 1795301240, \"signature\": \"5VMEz5Hbo589xKQPXszxmXesLAqVxiViUYR6qbZqfmf5rqQURk13UVrzjxoJ3QQ8Uhk2qL4yaNXLkM8MZFzp8iR\"}",
+      "handle": "JDd3hy3gQn2V982mi1zqhNqUw1GfV2UL6g76STojCJPN"
     },
     {
       "id": 252,
@@ -4458,6 +4522,24 @@
   ],
   "vetter_decisions": [
     {
+      "id": 64,
+      "mint": "ANTBTZQ1EUuTxUs3tfeampxdqTWPHmwyJmcWj4xoAyNe",
+      "ts": "2026-11-21T22:55:01.395893Z",
+      "whale_conviction": 12.5,
+      "liquidity": 100.0,
+      "buy_flow": null,
+      "social": null,
+      "momentum": null,
+      "total": 0.0,
+      "accepted": false,
+      "decision": "refusé",
+      "reasons": [
+        "mint authority non révoquée",
+        "freeze authority non révoquée",
+        "LP non verrouillée ou non brûlée"
+      ]
+    },
+    {
       "id": 63,
       "mint": "WBYHcZrbpFXEtKPkhdjYbgRp3MqdoD8LfhVGnDpESog",
       "ts": "2026-11-21T22:53:44.930082Z",
@@ -5878,12 +5960,12 @@
     }
   },
   "last_activity": {
-    "id": 433,
-    "ts_utc": "2026-11-21T22:53:52.985372Z",
-    "ts_europe_paris": "2026-11-21 23:53:52 CET",
+    "id": 442,
+    "ts_utc": "2026-11-21T22:55:06.653136Z",
+    "ts_europe_paris": "2026-11-21 23:55:06 CET",
     "level": "info",
     "actor": "live",
-    "message": "sell Shawty WBYHcZrbpFXEtKPkhdjYbgRp3MqdoD8LfhVGnDpESog usd=80.94104541237601"
+    "message": "sell West 3Az4ajBuLdF2Y9Cei1n8YCozAGXE5NuyTu9ykFaGpump usd=189.497346811264"
   },
   "equity_history": [
     {
@@ -5909,8 +5991,8 @@
     "positions_open": 0,
     "positions_closed": 0,
     "orders": 3,
-    "trades": 255,
-    "vetter_decisions": 63,
+    "trades": 259,
+    "vetter_decisions": 64,
     "whales": 15,
     "equity_points": 2
   },
@@ -5920,14 +6002,14 @@
       "name": "Watcher",
       "role": "Détecte les achats des baleines",
       "status": "EN DIRECT",
-      "detail": "transport websocket · 15 wallets · dernier événement 2026-11-21 23:53:52 CET",
+      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:55:06 CET",
       "state": "ok"
     },
     {
       "id": "vetter",
       "name": "Vetter",
       "role": "Vérifie et note chaque jeton",
-      "status": "63 décisions",
+      "status": "64 décisions",
       "detail": "Refuse les jetons rouges ou incomplets, note de 0 à 100",
       "state": "ok"
     },
@@ -5971,7 +6053,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:54:46.765386Z",
+        "ts": "2026-11-21T22:55:16.844226Z",
         "equity": 100.0
       }
     ],
@@ -6087,10 +6169,10 @@
   },
   "live": {
     "status": "live",
-    "transport": "websocket",
-    "last_event_europe_paris": "2026-11-21 23:53:52 CET",
-    "last_ok_europe_paris": "2026-11-21 23:54:44 CET",
+    "transport": "poll",
+    "last_event_europe_paris": "2026-11-21 23:55:06 CET",
+    "last_ok_europe_paris": "2026-11-21 23:55:16 CET",
     "whales": 15,
-    "events": 79
+    "events": 83
   }
 }
