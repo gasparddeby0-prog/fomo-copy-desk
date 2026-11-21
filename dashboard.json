@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:11:48.371844Z",
-  "exported_at_europe_paris": "2026-11-21 23:11:48 CET",
+  "exported_at_utc": "2026-11-21T22:12:48.452236Z",
+  "exported_at_europe_paris": "2026-11-21 23:12:48 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -5038,7 +5038,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:11:48.371844Z",
+        "ts": "2026-11-21T22:12:48.452236Z",
         "equity": 100.0
       }
     ],
@@ -5156,7 +5156,7 @@
     "status": "live",
     "transport": "poll",
     "last_event_europe_paris": "2026-11-21 23:11:24 CET",
-    "last_ok_europe_paris": "2026-11-21 23:11:47 CET",
+    "last_ok_europe_paris": "2026-11-21 23:12:45 CET",
     "whales": 15,
     "events": 42
   }
