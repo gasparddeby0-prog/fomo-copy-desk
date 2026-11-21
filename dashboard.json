@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:15:20.749002Z",
-  "exported_at_europe_paris": "2026-11-21 23:15:20 CET",
+  "exported_at_utc": "2026-11-21T22:15:48.787776Z",
+  "exported_at_europe_paris": "2026-11-21 23:15:48 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -61,6 +61,22 @@
     }
   ],
   "trades": [
+    {
+      "id": 222,
+      "whale_id": 4,
+      "wallet": "387FRwow6MKDhSwuMULhKjqeXuxoBY4BbbaSntdk9LaH",
+      "mint": "6dUjf2E8yBXiAVbmLpyH3Pt4YGww2WatsgBezTCpcyZg",
+      "side": "sell",
+      "amount_usd": 71.13012931521001,
+      "amount_token": 4036450.091118,
+      "signature": "y3DaVgEN941iUPG2FEFtYPpe973tDtJwVxLfXCamj7rYyz4cu5n73BFg3UvrR6f3nXkNvt28bvUP4d8eWRnChYQ",
+      "slot": 472302900,
+      "ts": "2026-11-21T22:15:36.000000Z",
+      "lag_s": 7.6722729206085205,
+      "source": "solana_live",
+      "raw_json": "{\"slot\": 472302900, \"blockTime\": 1795299336, \"signature\": \"y3DaVgEN941iUPG2FEFtYPpe973tDtJwVxLfXCamj7rYyz4cu5n73BFg3UvrR6f3nXkNvt28bvUP4d8eWRnChYQ\"}",
+      "handle": "387FRwow6MKDhSwuMULhKjqeXuxoBY4BbbaSntdk9LaH"
+    },
     {
       "id": 221,
       "whale_id": 1,
@@ -5028,12 +5044,12 @@
     }
   },
   "last_activity": {
-    "id": 348,
-    "ts_utc": "2026-11-21T22:15:18.294275Z",
-    "ts_europe_paris": "2026-11-21 23:15:18 CET",
+    "id": 350,
+    "ts_utc": "2026-11-21T22:15:43.672871Z",
+    "ts_europe_paris": "2026-11-21 23:15:43 CET",
     "level": "info",
     "actor": "live",
-    "message": "buy refusé Sheep: ['mint authority non révoquée']"
+    "message": "sell Shawty 6dUjf2E8yBXiAVbmLpyH3Pt4YGww2WatsgBezTCpcyZg usd=71.13012931521001"
   },
   "equity_history": [
     {
@@ -5059,7 +5075,7 @@
     "positions_open": 0,
     "positions_closed": 0,
     "orders": 2,
-    "trades": 221,
+    "trades": 222,
     "vetter_decisions": 46,
     "whales": 15,
     "equity_points": 2
@@ -5070,7 +5086,7 @@
       "name": "Watcher",
       "role": "Détecte les achats des baleines",
       "status": "EN DIRECT",
-      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:15:17 CET",
+      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:15:43 CET",
       "state": "ok"
     },
     {
@@ -5121,7 +5137,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:15:20.749002Z",
+        "ts": "2026-11-21T22:15:48.787776Z",
         "equity": 100.0
       }
     ],
@@ -5238,9 +5254,9 @@
   "live": {
     "status": "live",
     "transport": "poll",
-    "last_event_europe_paris": "2026-11-21 23:15:17 CET",
-    "last_ok_europe_paris": "2026-11-21 23:15:20 CET",
+    "last_event_europe_paris": "2026-11-21 23:15:43 CET",
+    "last_ok_europe_paris": "2026-11-21 23:15:48 CET",
     "whales": 15,
-    "events": 45
+    "events": 46
   }
 }
