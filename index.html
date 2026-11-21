@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#07090f">
+<title>Copy Desk · paper</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#07090f;--card:rgba(20,24,36,.72);--line:rgba(255,255,255,.07);--txt:#e8ebf3;--mut:#8a92a6;
+  --up:#2ee59d;--down:#ff5c7a;--acc:#7c5cff;--acc2:#22d3ee;--warn:#ffb547;
+  --r:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;padding:calc(14px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;z-index:-1;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.22;animation:drift 22s ease-in-out infinite alternate}
+body::before{background:var(--acc);top:-25vmax;left:-20vmax}
+body::after{background:var(--acc2);bottom:-30vmax;right:-20vmax;animation-delay:-11s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.wrap{max-width:1280px;margin:0 auto}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+h1{font-size:20px;margin:0;letter-spacing:.3px;font-weight:700}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.6px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.pill.paper{color:var(--warn);border-color:rgba(255,181,71,.35)}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 0 0 rgba(46,229,157,.7);animation:pulse 1.6s infinite}
+.live.late .dot{background:var(--warn);animation:none}.live.off .dot{background:var(--down);animation:none}
+.live{color:var(--up)}.live.late{color:var(--warn)}.live.off{color:var(--down)}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(46,229,157,0)}100%{box-shadow:0 0 0 0 rgba(46,229,157,0)}}
+.sp{flex:1}.mut{color:var(--mut)}
+.grid{display:grid;gap:12px}
+.kpis{grid-template-columns:repeat(6,minmax(0,1fr))}
+.main{grid-template-columns:minmax(0,2fr) minmax(0,1fr);margin-top:12px}
+.two{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.main,.two{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}body{font-size:13px}}
+.card{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+.card h2{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--mut);font-weight:700;display:flex;align-items:center;gap:8px}
+.kpi .v{font-size:22px;font-weight:750;font-variant-numeric:tabular-nums;transition:color .4s}
+.kpi .s{font-size:12px;color:var(--mut)}
+.up{color:var(--up)}.down{color:var(--down)}
+.flash{animation:flash .9s}
+@keyframes flash{0%{text-shadow:0 0 14px currentColor}100%{text-shadow:none}}
+.chartbox{position:relative;height:260px}
+@media(max-width:520px){.chartbox{height:200px}}
+.list{display:flex;flex-direction:column;gap:6px;max-height:420px;overflow:auto;scrollbar-width:thin}
+.row{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid transparent;transition:background .3s,border-color .3s}
+.row:hover{background:rgba(255,255,255,.05);border-color:var(--line)}
+.row.new{animation:slide .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes slide{from{opacity:0;transform:translateX(-14px);background:rgba(124,92,255,.18)}}
+.tag{font-size:10.5px;font-weight:800;letter-spacing:.6px;padding:2px 7px;border-radius:6px;white-space:nowrap}
+.t-buy{background:rgba(46,229,157,.14);color:var(--up)}.t-sell{background:rgba(255,92,122,.14);color:var(--down)}
+.t-signal{background:rgba(124,92,255,.22);color:#b9a8ff}.t-refus{background:rgba(255,181,71,.13);color:var(--warn)}
+.t-whale{background:rgba(34,211,238,.13);color:var(--acc2)}.t-skip,.t-system,.t-guard{background:rgba(255,255,255,.06);color:var(--mut)}
+.msg{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.time{font-size:11.5px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pos{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:6px;align-items:center}
+.pos b{font-size:14px}.bar{height:5px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:6px;grid-column:1/-1}
+.bar i{display:block;height:100%;border-radius:5px;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.empty{color:var(--mut);padding:18px 6px;text-align:center}
+a{color:var(--acc2);text-decoration:none}
+.sig{font-weight:700}.big{font-size:26px;font-weight:800}
+footer{margin-top:16px;color:var(--mut);font-size:11.5px;text-align:center}
+.banner{display:none;margin:0 0 12px;padding:10px 14px;border-radius:12px;background:rgba(255,92,122,.12);color:var(--down);border:1px solid rgba(255,92,122,.3);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span>Copy Desk</span> Solana</h1>
+    <span class="pill paper" id="mode">PAPER · argent fictif</span>
+    <span class="pill live off" id="live"><span class="dot"></span><span id="livetxt">CONNEXION…</span></span>
+    <span class="sp"></span>
+    <span class="mut" id="meta"></span>
+  </header>
+  <div class="banner" id="stopbanner">Arrêt du jour atteint (-10 %) : plus aucun achat jusqu'à demain.</div>
+
+  <section class="grid kpis">
+    <div class="card kpi"><h2>Équité</h2><div class="v" id="k-eq">–</div><div class="s" id="k-eqs">départ 100 $</div></div>
+    <div class="card kpi"><h2>P&amp;L total</h2><div class="v" id="k-pnl">–</div><div class="s" id="k-pnls"></div></div>
+    <div class="card kpi"><h2>Aujourd'hui</h2><div class="v" id="k-day">–</div><div class="s">stop à -10 %</div></div>
+    <div class="card kpi"><h2>Cash</h2><div class="v" id="k-cash">–</div><div class="s">10 % gardés</div></div>
+    <div class="card kpi"><h2>Positions</h2><div class="v" id="k-pos">–</div><div class="s" id="k-poss">max 3</div></div>
+    <div class="card kpi"><h2>Réussite</h2><div class="v" id="k-win">–</div><div class="s" id="k-wins"></div></div>
+  </section>
+
+  <section class="grid main">
+    <div class="card"><h2>Courbe d'équité</h2><div class="chartbox"><canvas id="chart"></canvas></div></div>
+    <div class="card"><h2>Positions ouvertes</h2><div class="list" id="positions"></div></div>
+  </section>
+
+  <section class="grid two">
+    <div class="card"><h2>Fil en direct</h2><div class="list" id="events"></div></div>
+    <div class="card"><h2>Signaux forts · 2 baleines ou plus</h2><div class="list" id="signals"></div>
+      <h2 style="margin-top:14px">Derniers swaps des baleines</h2><div class="list" id="whales" style="max-height:260px"></div></div>
+  </section>
+
+  <section class="grid two">
+    <div class="card"><h2>Nouveaux coins Solana</h2><div class="list" id="launches"></div></div>
+    <div class="card"><h2>Positions clôturées</h2><div class="list" id="closed"></div></div>
+  </section>
+  <footer>Simulation uniquement : aucun achat réel, aucune clé privée. Données : RPC Solana publics, DexScreener, RugCheck. Rafraîchi toutes les 8 s.</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const usd = (v, d = 2) => v == null ? "–" : (v < 0 ? "-" : "") + Math.abs(v).toLocaleString("fr-FR", {minimumFractionDigits: d, maximumFractionDigits: d}) + " $";
+const pct = v => v == null ? "–" : (v > 0 ? "+" : "") + v.toFixed(1) + " %";
+const cls = v => v > 0 ? "up" : v < 0 ? "down" : "";
+const short = a => a ? a.slice(0, 4) + "…" + a.slice(-4) : "";
+const price = v => v == null ? "–" : v >= 1 ? v.toFixed(4) : v.toPrecision(3);
+const hhmm = t => new Date(t * 1000).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit", second: "2-digit"});
+const ago = t => { const s = Date.now() / 1000 - t; return s < 60 ? Math.round(s) + " s" : s < 3600 ? Math.round(s / 60) + " min" : (s / 3600).toFixed(1) + " h"; };
+const safeUrl = u => /^https:\/\/(dexscreener\.com|solscan\.io)\//.test(u || "") ? u : null;
+const prev = {};
+let seenEvents = new Set(), first = true, chart;
+
+function setKpi(id, text, c) {
+  const el = $(id);
+  if (el.textContent !== text) { el.textContent = text; if (!first) { el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); } }
+  el.classList.remove("up", "down"); if (c) el.classList.add(c);
+}
+
+function initChart() {
+  const ctx = $("chart").getContext("2d");
+  const g = ctx.createLinearGradient(0, 0, 0, 260);
+  g.addColorStop(0, "rgba(124,92,255,.45)"); g.addColorStop(1, "rgba(124,92,255,0)");
+  chart = new Chart(ctx, {
+    type: "line",
+    data: {datasets: [
+      {data: [], borderColor: "#8f74ff", backgroundColor: g, fill: true, tension: .35, borderWidth: 2.2, pointRadius: 0},
+      {data: [], borderColor: "rgba(255,255,255,.18)", borderDash: [5, 5], borderWidth: 1, pointRadius: 0, fill: false}]},
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: {duration: 900, easing: "easeOutQuart"},
+      interaction: {mode: "index", intersect: false},
+      plugins: {legend: {display: false}, tooltip: {callbacks: {label: c => c.datasetIndex ? "départ" : usd(c.parsed.y)}}},
+      scales: {
+        x: {type: "linear", ticks: {color: "#8a92a6", maxTicksLimit: 6, callback: v => new Date(v * 1000).toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"})}, grid: {color: "rgba(255,255,255,.04)"}},
+        y: {ticks: {color: "#8a92a6", callback: v => v + " $"}, grid: {color: "rgba(255,255,255,.04)"}}}
+    }
+  });
+}
+
+function render(d) {
+  const age = Date.now() / 1000 - d.updated_at;
+  const live = $("live");
+  live.className = "pill live " + (age < 150 ? "" : age < 900 ? "late" : "off");
+  $("livetxt").textContent = age < 150 ? "EN DIRECT" : age < 900 ? "RETARD " + ago(d.updated_at) : "HORS LIGNE";
+  $("mode").textContent = (d.mode || "PAPER") + " · argent fictif";
+  $("meta").textContent = `${d.whales_count} baleines · ${d.live.ws ? "websocket ✓ " + d.live.ws_subs + " abonnements" : "polling"} · màj ${hhmm(d.updated_at)}`;
+  $("stopbanner").style.display = d.daily_stop_hit ? "block" : "none";
+
+  setKpi("k-eq", usd(d.equity), cls(d.pnl_usd));
+  $("k-eqs").textContent = "départ " + usd(d.start_cash, 0);
+  setKpi("k-pnl", usd(d.pnl_usd), cls(d.pnl_usd)); $("k-pnls").textContent = pct(d.pnl_pct);
+  setKpi("k-day", pct(d.day_pnl_pct), cls(d.day_pnl_pct));
+  setKpi("k-cash", usd(d.cash));
+  setKpi("k-pos", d.positions.length + " / " + d.rules.max_positions);
+  setKpi("k-win", d.win_rate == null ? "–" : d.win_rate.toFixed(0) + " %");
+  $("k-wins").textContent = d.closed_count + " clôturées";
+
+  const pts = d.curve.map(([x, y]) => ({x, y}));
+  chart.data.datasets[0].data = pts;
+  chart.data.datasets[1].data = pts.length ? [{x: pts[0].x, y: d.start_cash}, {x: pts[pts.length - 1].x, y: d.start_cash}] : [];
+  chart.update();
+
+  $("positions").innerHTML = d.positions.length ? d.positions.map(p => {
+    const w = Math.max(0, Math.min(100, (p.pnl_pct + 25) / 75 * 100));
+    return `<div class="row"><div class="pos" style="width:100%">
+      <div><b>${esc(p.symbol || short(p.mint))}</b><div class="time">ouverte il y a ${ago(p.opened_at)}${p.tp_done ? " · TP pris" : ""}</div></div>
+      <div><div class="mut" style="font-size:11px">entrée</div>${price(p.entry)}</div>
+      <div><div class="mut" style="font-size:11px">valeur</div>${usd(p.value)}</div>
+      <div class="${cls(p.pnl_pct)}" style="text-align:right;font-weight:800">${pct(p.pnl_pct)}</div>
+      <div class="bar"><i style="width:${w}%;background:${p.pnl_pct >= 0 ? "var(--up)" : "var(--down)"}"></i></div>
+    </div></div>`;
+  }).join("") : `<div class="empty">Aucune position. En attente d'un achat de baleine qui passe le Vetter.</div>`;
+
+  const evs = d.events.map(e => {
+    const key = e.at + e.message, isNew = !first && !seenEvents.has(key);
+    return `<div class="row${isNew ? " new" : ""}"><span class="tag t-${esc(e.kind)}">${esc(e.kind.toUpperCase())}</span><span class="msg">${esc(e.message)}</span><span class="time">${hhmm(e.at)}</span></div>`;
+  });
+  seenEvents = new Set(d.events.map(e => e.at + e.message));
+  $("events").innerHTML = evs.join("") || `<div class="empty">Rien pour l'instant.</div>`;
+
+  $("signals").innerHTML = d.signals.length ? d.signals.map(s =>
+    `<div class="row"><span class="tag t-signal">${s.n} BALEINES</span><span class="msg sig">${short(s.mint)}</span><span class="time">${esc(s.whales.join(", "))}</span></div>`
+  ).join("") : `<div class="empty">Aucun coin acheté par 2 baleines suivies sur les 30 dernières minutes.</div>`;
+
+  $("whales").innerHTML = d.whale_trades.length ? d.whale_trades.map(t =>
+    `<div class="row"><span class="tag ${t.side === "BUY" ? "t-buy" : "t-sell"}">${t.side === "BUY" ? "ACHAT" : "VENTE"}</span><span class="msg">${esc(t.handle)} · ${short(t.mint)}</span><span class="time">${t.usd_amount ? usd(t.usd_amount, 0) + " · " : ""}${t.block_time ? ago(t.block_time) : ""}</span></div>`
+  ).join("") : `<div class="empty">Pas encore de swap détecté.</div>`;
+
+  $("launches").innerHTML = d.launches.length ? d.launches.map(l => {
+    const u = safeUrl(l.url);
+    const name = esc(l.symbol || short(l.mint));
+    return `<div class="row"><span class="tag ${l.source.includes("migration") ? "t-signal" : "t-whale"}">${esc(l.source.toUpperCase())}</span>
+      <span class="msg">${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${name}</a>` : name} <span class="mut">${esc(l.dex || "")}</span></span>
+      <span class="time">${l.liquidity_usd ? usd(l.liquidity_usd, 0) + " liq · " : ""}${ago(l.pair_created_at)}</span></div>`;
+  }).join("") : `<div class="empty">Chargement des lancements…</div>`;
+
+  $("closed").innerHTML = d.closed.length ? d.closed.map(c =>
+    `<div class="row"><span class="tag ${c.pnl_usd >= 0 ? "t-buy" : "t-sell"}">${usd(c.pnl_usd)}</span><span class="msg">${esc(c.symbol || short(c.mint))} · <span class="mut">${esc(c.exit_reason || "")}</span></span><span class="time">${hhmm(c.closed_at)}</span></div>`
+  ).join("") : `<div class="empty">Aucune position clôturée.</div>`;
+  first = false;
+}
+
+async function tick() {
+  try {
+    const r = await fetch("dashboard.json?t=" + Date.now(), {cache: "no-store"});
+    if (r.ok) render(await r.json());
+  } catch (e) {
+    $("live").className = "pill live off"; $("livetxt").textContent = "HORS LIGNE";
+  }
+}
+initChart(); tick(); setInterval(tick, 8000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); });
+</script>
+</body>
+</html>
