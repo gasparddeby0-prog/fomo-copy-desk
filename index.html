@@ -147,11 +147,12 @@ function initChart() {
   });
 }
 
-function render(d) {
+function render(d, source) {
   const age = Date.now() / 1000 - d.updated_at;
   const live = $("live");
-  live.className = "pill live " + (age < 150 ? "" : age < 900 ? "late" : "off");
-  $("livetxt").textContent = age < 150 ? "EN DIRECT" : age < 900 ? "RETARD " + ago(d.updated_at) : "HORS LIGNE";
+  live.className = "pill live " + (age < 25 ? "" : age < 900 ? "late" : "off");
+  const src = source === "gist-api" ? "flux" : source === "gist-raw" ? "raw" : source === "local" ? "local" : "pages";
+  $("livetxt").textContent = age < 25 ? "EN DIRECT · " + src : age < 900 ? "RETARD " + ago(d.updated_at) + " · " + src : "HORS LIGNE";
   $("mode").textContent = (d.mode || "PAPER") + " · argent fictif";
   $("meta").textContent = `${d.whales_count} baleines · ${d.live.ws ? "websocket ✓ " + d.live.ws_subs + " abonnements" : "polling"} · màj ${hhmm(d.updated_at)}`;
   $("stopbanner").style.display = d.daily_stop_hit ? "block" : "none";
@@ -210,15 +211,50 @@ function render(d) {
   first = false;
 }
 
-async function tick() {
-  try {
-    const r = await fetch("dashboard.json?t=" + Date.now(), {cache: "no-store"});
-    if (r.ok) render(await r.json());
-  } catch (e) {
-    $("live").className = "pill live off"; $("livetxt").textContent = "HORS LIGNE";
-  }
+const GIST_ID = (window.COPYDESK_LIVE && window.COPYDESK_LIVE.gistId) || "dd84fc7e99e9633190c8c09cce203b9b";
+const GIST_API = "https://api.github.com/gists/" + GIST_ID;
+const GIST_RAW = "https://gist.githubusercontent.com/gasparddeby0-prog/" + GIST_ID + "/raw/dashboard.json";
+const POLL_MS = 10000;
+let apiDisabledUntil = 0;
+
+function parseGist(j) {
+  const f = j && j.files && (j.files["dashboard.json"] || Object.values(j.files)[0]);
+  return f && f.content ? JSON.parse(f.content) : null;
 }
-initChart(); tick(); setInterval(tick, 8000);
+
+async function pull(url, parser) {
+  const r = await fetch(url, {cache: "no-store"});
+  if (!r.ok) {
+    const err = new Error("HTTP " + r.status);
+    err.status = r.status;
+    err.remaining = r.headers.get("X-RateLimit-Remaining");
+    throw err;
+  }
+  const rem = r.headers.get("X-RateLimit-Remaining");
+  if (rem !== null && Number(rem) <= 5) apiDisabledUntil = Date.now() + 15 * 60 * 1000;
+  const j = await r.json();
+  return parser ? parser(j) : j;
+}
+
+async function tick() {
+  const t = Date.now();
+  const tries = [];
+  if (t >= apiDisabledUntil) tries.push(["gist-api", GIST_API + "?t=" + t, parseGist]);
+  tries.push(["gist-raw", GIST_RAW + "?t=" + t, null]);
+  tries.push(["pages", "dashboard.json?t=" + t, null]);
+  for (const [name, url, parser] of tries) {
+    try {
+      const d = await pull(url, parser);
+      if (d && d.updated_at) { render(d, name); return; }
+    } catch (e) {
+      if (name === "gist-api" && (e.status === 403 || e.status === 429)) {
+        apiDisabledUntil = Date.now() + 15 * 60 * 1000;
+      }
+    }
+  }
+  $("live").className = "pill live off"; $("livetxt").textContent = "HORS LIGNE";
+}
+initChart(); tick(); setInterval(tick, POLL_MS);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); });
 </script>
 </body>
