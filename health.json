@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "mode": "poll",
+  "mode": "websocket",
   "started_at_europe_paris": "2026-11-21 22:27:24 CET",
   "last_event_europe_paris": "2026-11-21 23:01:31 CET",
-  "last_ok_europe_paris": "2026-11-21 23:01:44 CET",
+  "last_ok_europe_paris": "2026-11-21 23:04:15 CET",
   "last_error": "sent 1011 (internal error) keepalive ping timeout; no close frame received",
   "events": 36,
   "copied": 0,
