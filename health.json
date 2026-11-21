@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "mode": "poll",
+  "started_at_europe_paris": "2026-11-21 22:27:24 CET",
+  "last_event_europe_paris": "2026-11-21 23:01:31 CET",
+  "last_ok_europe_paris": "2026-11-21 23:01:44 CET",
+  "last_error": "sent 1011 (internal error) keepalive ping timeout; no close frame received",
+  "events": 36,
+  "copied": 0,
+  "refused": 23,
+  "whales": 15,
+  "paper": true
+}
