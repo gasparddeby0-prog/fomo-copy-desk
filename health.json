@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "mode": "poll",
+  "mode": "websocket",
   "started_at_europe_paris": "2026-11-21 22:27:24 CET",
   "last_event_europe_paris": "2026-11-21 23:15:43 CET",
-  "last_ok_europe_paris": "2026-11-21 23:16:53 CET",
+  "last_ok_europe_paris": "2026-11-21 23:17:45 CET",
   "last_error": "",
   "events": 46,
   "copied": 0,

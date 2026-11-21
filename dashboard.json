@@ -1,6 +1,6 @@
 {
-  "exported_at_utc": "2026-11-21T22:16:48.861271Z",
-  "exported_at_europe_paris": "2026-11-21 23:16:48 CET",
+  "exported_at_utc": "2026-11-21T22:17:48.979389Z",
+  "exported_at_europe_paris": "2026-11-21 23:17:48 CET",
   "timezone": "Europe/Paris",
   "mode": "PAPER",
   "fomo_handle": null,
@@ -5086,7 +5086,7 @@
       "name": "Watcher",
       "role": "Détecte les achats des baleines",
       "status": "EN DIRECT",
-      "detail": "transport poll · 15 wallets · dernier événement 2026-11-21 23:15:43 CET",
+      "detail": "transport websocket · 15 wallets · dernier événement 2026-11-21 23:15:43 CET",
       "state": "ok"
     },
     {
@@ -5137,7 +5137,7 @@
         "equity": 100.0
       },
       {
-        "ts": "2026-11-21T22:16:48.861271Z",
+        "ts": "2026-11-21T22:17:48.979389Z",
         "equity": 100.0
       }
     ],
@@ -5253,9 +5253,9 @@
   },
   "live": {
     "status": "live",
-    "transport": "poll",
+    "transport": "websocket",
     "last_event_europe_paris": "2026-11-21 23:15:43 CET",
-    "last_ok_europe_paris": "2026-11-21 23:16:48 CET",
+    "last_ok_europe_paris": "2026-11-21 23:17:45 CET",
     "whales": 15,
     "events": 46
   }
