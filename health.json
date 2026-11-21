@@ -2,12 +2,12 @@
   "status": "ok",
   "mode": "poll",
   "started_at_europe_paris": "2026-11-21 22:27:24 CET",
-  "last_event_europe_paris": "2026-11-21 23:05:55 CET",
-  "last_ok_europe_paris": "2026-11-21 23:06:51 CET",
+  "last_event_europe_paris": "2026-11-21 23:07:24 CET",
+  "last_ok_europe_paris": "2026-11-21 23:07:41 CET",
   "last_error": "sent 1002 (protocol error) invalid status code; no close frame received",
-  "events": 38,
+  "events": 39,
   "copied": 0,
-  "refused": 25,
+  "refused": 26,
   "whales": 15,
   "paper": true
 }
